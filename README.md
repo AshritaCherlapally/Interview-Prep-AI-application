@@ -35,7 +35,14 @@ Interview Prep allows users to practice job interviews by interacting with AI vo
 ## Features
 
 - **Authentication** — Email/password sign-up and sign-in using Firebase Authentication.
+  <img width="1440" alt="image" src="https://github.com/user-attachments/assets/2523bbbe-35d5-4215-ba77-d4aec6df8de6" />
+  <img width="1440" alt="image" src="https://github.com/user-attachments/assets/dfc81024-392a-456a-84f7-64b1f214a600" />
+
 - **Create Interviews** — Generate job interview questions dynamically using Vapi AI and Google Gemini APIs.
+  <img width="1439" alt="image" src="https://github.com/user-attachments/assets/45311532-1b45-4fc1-bb2e-cc8348080bb1" />
+
+  <img width="1440" alt="image" src="https://github.com/user-attachments/assets/5cad55dc-16aa-4fef-9ce4-ff83e8f22181" />
+
 - **AI-Driven Feedback** — Receive instant feedback based on AI voice interaction.
 - **Interview Dashboard** — Manage and view past interviews, including feedback and transcripts.
 - **Modern UI/UX** — Built with TailwindCSS and shadcn/ui for a responsive and clean interface.
