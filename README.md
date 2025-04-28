@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Interview Prep - AI Job Interview Preparation Platform
 
-## Getting Started
+Interview Prep is a job interview preparation platform powered by Vapi AI Voice Agents, built with Next.js, Firebase, TailwindCSS, and shadcn/ui. It offers users the ability to practice mock interviews, receive AI-driven feedback, and track interview progress through a modern, responsive dashboard.
 
-First, run the development server:
+---
 
+## 📋 Table of Contents
+- [Introduction](#introduction)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Quick Start](#quick-start)
+- [Environment Variables](#environment-variables)
+- [Folder Structure](#folder-structure)
+- [License](#license)
+
+---
+
+## Introduction
+
+Interview Prep allows users to practice job interviews by interacting with AI voice agents, receive instant feedback, and manage their interviews through an intuitive dashboard. The platform is fully responsive and built with scalable architecture to support real-time interaction and data management.
+
+---
+
+## Tech Stack
+- **Next.js** — Frontend and Backend Framework
+- **Firebase** — Authentication, Firestore Database
+- **Tailwind CSS** — Styling
+- **shadcn/ui** — UI Components
+- **Vapi AI** — Voice AI Agents
+- **Google Gemini API** — AI Question and Feedback Generation
+- **Zod** — Form Validation and Schema Validation
+
+---
+
+## Features
+
+- **Authentication** — Email/password sign-up and sign-in using Firebase Authentication.
+- **Create Interviews** — Generate job interview questions dynamically using Vapi AI and Google Gemini APIs.
+- **AI-Driven Feedback** — Receive instant feedback based on AI voice interaction.
+- **Interview Dashboard** — Manage and view past interviews, including feedback and transcripts.
+- **Modern UI/UX** — Built with TailwindCSS and shadcn/ui for a responsive and clean interface.
+- **Fully Responsive** — Works across desktop, tablet, and mobile devices.
+- **Scalable Architecture** — Modular code structure for easier maintenance and extension.
+
+---
+
+## Quick Start
+
+### 1. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/YOUR-USERNAME/interviewprep.git
+cd interviewprep
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
