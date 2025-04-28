@@ -48,8 +48,8 @@ Interview Prep allows users to practice job interviews by interacting with AI vo
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR-USERNAME/interviewprep.git
-cd interviewprep
+git clone https://github.com/YOUR-USERNAME/Interview-Prep-AI-application.git
+cd interviewprepaiapplication
 ``` 
 ### 2. Install Dependencies
 ```bash
