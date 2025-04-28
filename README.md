@@ -50,6 +50,39 @@ Interview Prep allows users to practice job interviews by interacting with AI vo
 ```bash
 git clone https://github.com/YOUR-USERNAME/interviewprep.git
 cd interviewprep
+``` 
+### 2. Install Dependencies
+```bash
+npm install
+```
+### 3. Set Up Environment Variables
+- Create a .env.local file in the root directory and add the following variables:
+- Fill in your actual credentials
+- 
+```bash
+NEXT_PUBLIC_VAPI_WEB_TOKEN=
+NEXT_PUBLIC_VAPI_WORKFLOW_ID=
+GOOGLE_GENERATIVE_AI_API_KEY=
+NEXT_PUBLIC_BASE_URL=
+
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+
+FIREBASE_PROJECT_ID=
+FIREBASE_CLIENT_EMAIL=
+FIREBASE_PRIVATE_KEY=
+```
+### 4. Run the development server
+```bash
+npm run dev
+```
+
+
+
 
 
 
