@@ -7,8 +7,7 @@ import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { vapi } from "@/lib/vapi.sdk";
 import { interviewer } from "@/constants";
-
-// import { createFeedback } from "@/lib/actions/general.action";
+import { createFeedback } from "@/lib/actions/general.action";
 
 enum CallStatus {
   INACTIVE = "INACTIVE",
@@ -84,13 +83,19 @@ const Agent = ({
   }, []);
 
   useEffect(() => {
-    const handleGenerateFeedback = async (messages: SavedMessage[]) => {
-      console.log("Generate feedback here.");
+    if (messages.length > 0) {
+      setLastMessage(messages[messages.length - 1].content);
+    }
 
-      const { success, id } = {
-        success: true,
-        id: "feedback-id",
-      };
+    const handleGenerateFeedback = async (messages: SavedMessage[]) => {
+      console.log("handleGenerateFeedback");
+
+      const { success, feedbackId: id } = await createFeedback({
+        interviewId: interviewId!,
+        userId: userId!,
+        transcript: messages,
+        feedbackId,
+      });
 
       if (success && id) {
         router.push(`/interview/${interviewId}/feedback`);
@@ -99,6 +104,7 @@ const Agent = ({
         router.push("/");
       }
     };
+
     if (callStatus === CallStatus.FINISHED) {
       if (type === "generate") {
         router.push("/");
@@ -106,15 +112,7 @@ const Agent = ({
         handleGenerateFeedback(messages);
       }
     }
-
-    //   if (callStatus === CallStatus.FINISHED) {
-    //     if (type === "generate") {
-    //       router.push("/");
-    //     } else {
-    //       handleGenerateFeedback(messages);
-    //     }
-    //   }
-  }, [messages, callStatus, type, userId]);
+  }, [messages, callStatus, feedbackId, interviewId, router, type, userId]);
 
   const handleCall = async () => {
     setCallStatus(CallStatus.CONNECTING);
@@ -146,13 +144,11 @@ const Agent = ({
     setCallStatus(CallStatus.FINISHED);
     vapi.stop();
   };
-  const latestMessage = messages[messages.length - 1]?.content;
-  const isCallInactiveOrFinished =
-    callStatus === CallStatus.INACTIVE || callStatus === CallStatus.FINISHED;
 
   return (
     <>
       <div className="call-view">
+        {/* AI Interviewer Card */}
         <div className="card-interviewer">
           <div className="avatar">
             <Image
@@ -167,6 +163,7 @@ const Agent = ({
           <h3>AI Interviewer</h3>
         </div>
 
+        {/* User Profile Card */}
         <div className="card-border">
           <div className="card-content">
             <Image
@@ -185,13 +182,13 @@ const Agent = ({
         <div className="transcript-border">
           <div className="transcript">
             <p
-              key={latestMessage}
+              key={lastMessage}
               className={cn(
                 "transition-opacity duration-500 opacity-0",
                 "animate-fadeIn opacity-100"
               )}
             >
-              {latestMessage}
+              {lastMessage}
             </p>
           </div>
         </div>
@@ -208,7 +205,9 @@ const Agent = ({
             />
 
             <span className="relative">
-              {isCallInactiveOrFinished ? "Call" : ". . ."}
+              {callStatus === "INACTIVE" || callStatus === "FINISHED"
+                ? "Call"
+                : ". . ."}
             </span>
           </button>
         ) : (
